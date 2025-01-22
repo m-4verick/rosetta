@@ -1,5 +1,5 @@
 /// 각 필요한 부분 Id만 따와서 그안의 내용은 api부분에서 include 사용예정
-///
+/// 고려해야할 부분 판매 내역
 model Order {
   id     String @id @default(uuid())
   userId String @default("Anonymous")
