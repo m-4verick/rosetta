@@ -1,0 +1,35 @@
+enum Subject {
+  REGULAR_ADMISSION // 정시
+  EARLY_ADMISSION // 수시
+  SCHOOL_RECORD // 내신
+  ESSAY // 논술
+  KOREAN // 국어
+  ENGLISH // 영어
+  MATHEMATICS // 수학
+  SOCIAL_STUDIES // 사탐
+  SCIENCE // 과탐
+  ARTS_AND_SPORTS // 예체능
+  OTHERS // 기타
+}
+
+model Product {
+  id                   String       @id @default(uuid()) // PK
+  productName          String
+  productThumbnail     String
+  productThumbnailText String?
+  price                Float
+  berryPrice           Int // Int Float 확인
+  requiredSubject      Subject
+  optionalSubject      Subject?
+  tags                 String[]
+  description          String
+  recommendedFor       String[]?
+  isRecommended        Boolean
+  createdAt            DateTime     @default(now())
+  updatedAt            DateTime     @updatedAt
+  isTemporary          Boolean
+  attachments          Attachment[]
+  reviews              Review[]
+  userId               String // FK
+  user                 User         @relation(fields: [userId], references: [id])
+}

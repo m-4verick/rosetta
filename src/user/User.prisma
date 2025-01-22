@@ -1,0 +1,35 @@
+model User {
+  id              String          @id @default(uuid())
+  username        String          @unique
+  nickname        String
+  soicalLoginType SocialLoginType
+  profileImageURL String
+  userType        UserType
+  introduction    String
+  berries         BerryHistory[]
+  puchasedProduct Product[]
+  createdProduct  Product[]
+  QNAS            QNA[]
+  account         Account
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  deletedAt       DateTime?
+  reviews         Review[]
+  paidBerry       Int
+  bounsBerry      Int
+  recommenderId   String
+  recommender     User?           @relation("Recommender", fields: [recommenderId], references: [id])
+}
+
+enum SocialLoginType {
+  KAKAO
+  NAVER
+}
+
+enum UserType {
+  SCHOOLTEACHER
+  HAKWONTEACHER
+  STUDENT
+  PUBLSHING
+  ETC
+}
