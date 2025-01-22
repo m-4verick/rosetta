@@ -1,0 +1,7 @@
+model DownloadLog {
+  id        String   @id @default(uuid())
+  userId    String // FK
+  user      User     @relation(fields: [userId], references: [id])
+  attachmentsId String // FK
+  attachments Attachment @relation(fields: [attachmentsId], references: [id])
+}
