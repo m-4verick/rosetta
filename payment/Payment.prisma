@@ -6,8 +6,9 @@ enum stat {
 }
 
 enum money {
-  KRW
-  USD
+  KRW ///한화원
+  USD ///미국달러
+  ZWD ///짐바브웨달러
 }
 
 model Payment {
