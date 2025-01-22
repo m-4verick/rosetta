@@ -1,0 +1,23 @@
+{
+  "name": "rosetta",
+  "version": "1.0.0",
+  "description": "wakey wakey eggs and bakey",
+  "homepage": "https://github.com/m-4verick/rosetta#readme",
+  "bugs": {
+    "url": "https://github.com/m-4verick/rosetta/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m-4verick/rosetta.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "prisma": "^6.2.1"
+  }
+}
