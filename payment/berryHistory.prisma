@@ -1,0 +1,6 @@
+model berryHistory {
+  id
+  userId Int ///FK
+  User   User @relation(fields: [useId], references: [id])
+  status ""
+}
