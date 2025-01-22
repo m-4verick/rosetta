@@ -1,0 +1,16 @@
+enum status {
+  SPEND
+  BONUS
+  DEPOSIT
+}
+
+model BerryHistory {
+  id        String    @id @default(uuid())
+  userId    String
+  status    status
+  createdAt DateTime
+  tags      String[]?
+  paymentId String?
+  User      User      @relation(fields: [userId], references: [id])
+  Product   Product   @relation(fields: [tags], references: [tags])
+}

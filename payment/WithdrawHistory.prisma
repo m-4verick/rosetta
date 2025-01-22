@@ -1,0 +1,16 @@
+enum stat {
+  PENDING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+model WithdrawHistory {
+  withdrawId     String    @id @default(uuid())
+  userId         String
+  withdrawAmount Int
+  status         stat      @default(PENDING)
+  requestedAt    DateTime
+  processedAt    DateTime?
+  User           User      @relation(fields: [userId], references: [id])
+}

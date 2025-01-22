@@ -1,0 +1,28 @@
+enum stat {
+  PENDING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+enum money {
+  KRW
+  USD
+}
+
+model Payment {
+  id            String    @id @default(uuid()) /// 토스쪽 코드 대신
+  orderId       String    @unique @default(uuid())
+  transactionId String    @unique @default(uuid()) /// 토스쪽 코드 대신 사용
+  productName   String
+  totalAmount   Int       @default(0)
+  currency      money     @default(KRW)
+  status        stat      @default(PENDING)
+  paidAt        DateTime
+  userId        String
+  tax           Int       @default(0)
+  isRefunded    Boolean   @default(false)
+  refundedDate  DateTime?
+  Order         Order     @relation(fields: [orderId], references: [id])
+  User          User      @relation(fields: [userId], references: [id])
+}
