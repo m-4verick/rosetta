@@ -1,0 +1,6 @@
+model Earnings {
+  userId          String
+  withdrawable    Int    @default(0)
+  nonWithDrawable Int    @default(0)
+  User            User   @relation(fields: [userId], references: [id])
+}

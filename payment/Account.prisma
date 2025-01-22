@@ -1,0 +1,16 @@
+enum banks {
+  SHINHAN
+  IBK
+  KAKAO
+  HANA
+}
+
+model Account {
+  userId    String
+  account   Int
+  bank      banks
+  ownerName String
+  createdAt DateTime
+  updatedAt DateTime
+  User      User     @relation(fields: [userId], references: [id])
+}
