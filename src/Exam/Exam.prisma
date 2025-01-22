@@ -1,0 +1,44 @@
+enum Category {
+  정시
+  수시
+  내신
+  논술
+  국어
+  영어
+  수학
+  사탐
+}
+
+enum Month {
+  January
+  February
+  March
+  April
+  May
+  June
+  July
+  August
+  September
+  October
+  November
+  December
+}
+
+enum Grade {
+  고1
+  고2
+  고3
+  기타
+}
+
+model Exam {
+  id        String   @id @default(uuid())
+  category  Category
+  year      Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  month     Month
+  grade     Grade
+  title     String
+  pdfUrl    String
+}
