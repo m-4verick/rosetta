@@ -1,4 +1,4 @@
-model downloadLog {
+model DownloadLog {
   id        String   @id @default(uuid())
   userId    String // FK
   user      User     @relation(fields: [userId], references: [id])
