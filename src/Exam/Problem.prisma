@@ -1,0 +1,10 @@
+model Problem {
+  id         String   @id @default(uuid())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  content    String
+  number     Int[]
+  isQuestion Boolean
+  examId     String
+  exam       Exam     @relation(fields: [examId], references: [id])
+}
