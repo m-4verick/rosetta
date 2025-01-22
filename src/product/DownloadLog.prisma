@@ -4,4 +4,6 @@ model DownloadLog {
   user      User     @relation(fields: [userId], references: [id])
   attachmentsId String // FK
   attachments Attachment @relation(fields: [attachmentsId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
