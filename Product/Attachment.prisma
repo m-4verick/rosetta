@@ -1,0 +1,9 @@
+model Attachment {
+  id        String   @id @default(uuid()) // PK
+  url       String   @unique // unique해도 되는지 확인
+  pageCount Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  productId String // FK
+  product   Product  @relation(fields: [productId], references: [id])
+}
